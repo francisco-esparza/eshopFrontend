@@ -1,0 +1,61 @@
+.main-logo {
+  height: 8rem;
+  width: auto;
+}
+
+.btn-car-shop {
+  font-size: 1.4rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal-title button {
+  border: 0;
+  outline: 0;
+}
+
+.list-product {
+  list-style: none;
+  max-height: 50vh;
+  overflow-y: auto;
+  margin: 0;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.detail-sale,
+.list-product li{
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-product .name-product,
+.list-product .price-product {
+  width: 50%;
+  height: 100%;
+  color: var(--gray);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.detail-sale .label-price,
+.detail-sale .label-amount {
+  width: 50%;
+  height: 100%;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.1rem 0.5rem;
+}
+
+.detail-sale .label-price{
+  background-color: var(--dark);
+  color: #fff;
+}
+
+.detail-sale .label-amount {
+  color: var(--dark);
+  border: 2px solid var(--dark);
+}

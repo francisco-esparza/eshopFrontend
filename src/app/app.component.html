@@ -1,0 +1,65 @@
+<header class="container-fluid shadow-lg fixed-top">
+  <div class="row flex justify-content-evently align-items-center">
+    <div class=" col-lg-3 col-md-2 col-0">
+      <h4 class="title-main">ECOMMERS</h4>
+    </div>
+    <div class=" col-lg-6 col-md-8 col-sm-8 col-10">
+      <div class="container-input-custom">
+        <div ngbDropdown class="select-category">
+          <h6 ngbDropdownToggle id="dropdownBasic1">Categorias </h6>
+          <div ngbDropdownMenu aria-labelledby="dropdownManual">
+
+            <button
+              ngbDropdownItem
+              *ngFor="let c of categorys"
+              (click)="filterProductForCategory(c.DepartamentName, 0)"
+            >{{c.DepartamentName}}</button>
+
+          </div>
+        </div>
+        <input type="text" placeholder="¿Que producto desea buscar?">
+        <div id="icon-search">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </div>
+    <div class=" col-lg-3 col-md-2 col-2 btn-car-shop" (click)="openModal(content)">
+      <i class="fas fa-cart-plus"></i> <span> Comprar</span>
+    </div>
+  </div>
+</header>
+<div class="body">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Lista de productos seleccionados:</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     <ul class="list-product">
+      <li  *ngFor="let p of listProducts">
+         <div class="name-product">
+          {{p.ProductName}}
+        </div>
+        <div class="price-product">
+          S/. {{p.Price.toFixed(2)}}
+        </div>
+        </li>
+    </ul>
+    <div class="detail-sale">
+      <div class="label-price">TOTAL A PAGAR:</div>
+      <div class="label-amount">S/.{{priceTotal().toFixed(2)}}</div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-block btn-success-acction">
+      <i class="fas fa-money-check"></i>  PAGAR
+    </button>
+  </div>
+</ng-template>
